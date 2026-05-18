@@ -1,3 +1,5 @@
+import { Backlight } from '../ui/backlight';
+
 export function MicroBusinessSection() {
   return (
     <section className="bg-secondary px-4 py-12 lg:px-8 lg:py-16">
@@ -12,17 +14,19 @@ export function MicroBusinessSection() {
           </p>
         </div>
 
-        <div className="mt-8 mx-auto max-w-2xl overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-          <div className="relative w-full pt-[56.25%]">
-            <iframe
-              className="absolute inset-0 h-full w-full"
-              src="https://www.youtube.com/embed/bKbo8Rr5Y_0"
-              title="송길영 | 시대예보: 경량문명의 탄생"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+        <Backlight className="w-full">
+          <div className="mt-8 mx-auto max-w-2xl overflow-hidden rounded-2xl">
+            <div className="relative w-full pt-[56.25%]">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src="https://www.youtube.com/embed/bKbo8Rr5Y_0"
+                title="송길영 | 시대예보: 경량문명의 탄생"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
           </div>
-        </div>
+        </Backlight>
       </div>
     </section>
   );
