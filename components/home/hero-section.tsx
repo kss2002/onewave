@@ -1,13 +1,14 @@
 'use client';
 
-import Link from "next/link";
-import type { MouseEvent } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
-import { ScoreGauge } from "@/components/score-gauge";
-import { TypingHeadline } from "@/components/home/typing-headline";
-import { useAuth } from "@/lib/auth";
-import { useAuthModal } from "@/components/auth-modal";
+import Link from 'next/link';
+import type { MouseEvent } from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import { ScoreGauge } from '@/components/score-gauge';
+import { TypingHeadline } from '@/components/home/typing-headline';
+import { useAuth } from '@/lib/auth';
+import { useAuthModal } from '@/components/auth-modal';
+import { NeonGradientCard } from '@/components/ui/neon-gradient-card';
 
 export function HeroSection() {
   const { isLoggedIn } = useAuth();
@@ -19,7 +20,7 @@ export function HeroSection() {
   ) => {
     if (!requiresAuth || isLoggedIn) return;
     event.preventDefault();
-    alert("로그인이 필요한 기능입니다");
+    alert('로그인이 필요한 기능입니다');
     openModal();
   };
 
@@ -40,11 +41,7 @@ export function HeroSection() {
             <br />
             <span className="whitespace-nowrap">
               <TypingHeadline
-                phrases={[
-                  "Micro Business로",
-                  "실 사용 서비스로",
-                  "경력으로",
-                ]}
+                phrases={['Micro Business로', '실 사용 서비스로', '경력으로']}
                 className="text-primary"
               />
             </span>
@@ -56,8 +53,8 @@ export function HeroSection() {
             고객 문제를 해결하는 작은 사업을 직접 설계·운영하며 매출과 운영
             데이터를 쌓습니다. AI가 이를 분석해 신뢰 가능한 실전 리포트로
             정리하고, 성장하면 자연스럽게 창업으로 확장할 수 있습니다. Micro
-            Business가 아니더라도, 이 경험 자체가 많은 직장에서 원하는
-            경력 있는 인재로 인정받는 강력한 기회가 됩니다.
+            Business가 아니더라도, 이 경험 자체가 많은 직장에서 원하는 경력 있는
+            인재로 인정받는 강력한 기회가 됩니다.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -91,60 +88,65 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="flex flex-1 items-center justify-center">
-          <div className="w-full max-w-md rounded-2xl border border-border bg-card p-6 shadow-lg">
-            <div className="mb-4 flex items-center justify-between">
-              <span className="text-sm font-semibold text-foreground">
-                Micro Business 운영 리포트
-              </span>
-              <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-medium text-accent-foreground">
-                실시간
-              </span>
-            </div>
-            <div className="flex items-start gap-6">
-              <ScoreGauge score={87} size={100} strokeWidth={8} />
-              <div className="flex-1">
-                <h3 className="text-sm font-semibold text-foreground">
-                  지역 소상공인 예약 자동화
-                </h3>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  실제 고객 유입과 매출 테스트를 완료했고, 반복 개선 로그가
-                  축적되어 있습니다.
-                </p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  <span className="rounded-md bg-accent px-2 py-0.5 text-[11px] font-medium text-accent-foreground">
-                    로컬 비즈니스
-                  </span>
-                  <span className="rounded-md bg-accent px-2 py-0.5 text-[11px] font-medium text-accent-foreground">
-                    운영 자동화
-                  </span>
-                  <span className="rounded-md bg-accent px-2 py-0.5 text-[11px] font-medium text-accent-foreground">
-                    수익 검증
-                  </span>
+        <NeonGradientCard
+          className="h-auto w-full max-w-md"
+          contentClassName="bg-transparent p-0"
+        >
+          <div className="flex flex-1 items-center justify-center">
+            <div className="w-full max-w-md rounded-2xl border border-border bg-card p-6 shadow-lg">
+              <div className="mb-4 flex items-center justify-between">
+                <span className="text-sm font-semibold text-foreground">
+                  Micro Business 운영 리포트
+                </span>
+                <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-medium text-accent-foreground">
+                  실시간
+                </span>
+              </div>
+              <div className="flex items-start gap-6">
+                <ScoreGauge score={87} size={100} strokeWidth={8} />
+                <div className="flex-1">
+                  <h3 className="text-sm font-semibold text-foreground">
+                    지역 소상공인 예약 자동화
+                  </h3>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    실제 고객 유입과 매출 테스트를 완료했고, 반복 개선 로그가
+                    축적되어 있습니다.
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    <span className="rounded-md bg-accent px-2 py-0.5 text-[11px] font-medium text-accent-foreground">
+                      로컬 비즈니스
+                    </span>
+                    <span className="rounded-md bg-accent px-2 py-0.5 text-[11px] font-medium text-accent-foreground">
+                      운영 자동화
+                    </span>
+                    <span className="rounded-md bg-accent px-2 py-0.5 text-[11px] font-medium text-accent-foreground">
+                      수익 검증
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="mt-5 grid grid-cols-3 gap-3">
+              <div className="mt-5 grid grid-cols-3 gap-3">
                 {[
-                  { label: "고객 반응", value: 91 },
-                  { label: "수익화", value: 86 },
-                  { label: "반복 개선", value: 88 },
-                ].map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-lg bg-secondary p-3 text-center"
-                >
-                  <div className="text-lg font-bold text-foreground">
-                    {item.value}
+                  { label: '고객 반응', value: 91 },
+                  { label: '수익화', value: 86 },
+                  { label: '반복 개선', value: 88 },
+                ].map(item => (
+                  <div
+                    key={item.label}
+                    className="rounded-lg bg-secondary p-3 text-center"
+                  >
+                    <div className="text-lg font-bold text-foreground">
+                      {item.value}
+                    </div>
+                    <div className="text-[11px] text-muted-foreground">
+                      {item.label}
+                    </div>
                   </div>
-                  <div className="text-[11px] text-muted-foreground">
-                    {item.label}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </NeonGradientCard>
       </div>
     </section>
   );
